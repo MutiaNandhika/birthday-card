@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="coffeeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0F5" />
+      <stop offset="50%" stop-color="#FFE3E8" />
+      <stop offset="100%" stop-color="#FFD166" />
+    </linearGradient>
+    <radialGradient id="steamGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#FF8FAB" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#coffeeBg)" rx="24"/>
+  
+  <!-- Warm background circles -->
+  <circle cx="280" cy="240" r="140" fill="#FFC2D1" fill-opacity="0.4"/>
+  <circle cx="520" cy="260" r="120" fill="#FFD166" fill-opacity="0.3"/>
+  
+  <!-- Two stylized coffee / matcha cups sharing a moment -->
+  <g transform="translate(260, 220)">
+    <!-- Cup 1 -->
+    <rect x="0" y="40" width="110" height="120" rx="20" fill="#FFFFFF" filter="drop-shadow(0 10px 15px rgba(43,39,48,0.08))"/>
+    <path d="M110 65 C135 65 135 110 110 110" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+    <rect x="15" y="55" width="80" height="15" rx="7" fill="#FF8FAB" fill-opacity="0.6"/>
+    <!-- Steam -->
+    <path d="M40 25 Q30 5 45 -15 T40 -35" fill="none" stroke="#FF8FAB" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+    <path d="M70 25 Q80 5 65 -15 T70 -35" fill="none" stroke="#FF8FAB" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  </g>
+
+  <g transform="translate(420, 240)">
+    <!-- Cup 2 -->
+    <rect x="0" y="30" width="100" height="110" rx="18" fill="#FFFFFF" filter="drop-shadow(0 10px 15px rgba(43,39,48,0.08))"/>
+    <path d="M-5 50 C-25 50 -25 90 -5 90" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    <rect x="12" y="45" width="76" height="14" rx="7" fill="#FFD166" fill-opacity="0.6"/>
+    <!-- Steam -->
+    <path d="M35 15 Q25 -5 40 -25 T35 -45" fill="none" stroke="#FFD166" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+    <path d="M65 15 Q75 -5 60 -25 T65 -45" fill="none" stroke="#FFD166" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- Sweet heart floating between -->
+  <path d="M395 180 C395 165 375 160 375 175 C375 190 395 205 395 205 C395 205 415 190 415 175 C415 160 395 165 395 180 Z" fill="#FF8FAB"/>
+
+  <!-- Badge -->
+  <rect x="250" y="490" width="300" height="44" rx="22" fill="#FFFFFF" fill-opacity="0.9" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.05))"/>
+  <text x="400" y="518" font-family="'Playfair Display', serif" font-size="16" font-weight="600" fill="#2B2730" text-anchor="middle" letter-spacing="2">COFFEE, TALKS &amp; LAUGHTER</text>
+</svg>

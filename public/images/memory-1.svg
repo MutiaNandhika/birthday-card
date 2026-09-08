@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mem1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE5EC"/>
+      <stop offset="100%" stop-color="#FFD166"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#mem1)"/>
+  <circle cx="300" cy="260" r="140" fill="#FFFFFF" opacity="0.6"/>
+  
+  <!-- Stylized camera / photo frame icon -->
+  <rect x="220" y="200" width="160" height="120" rx="16" fill="#2B2730" opacity="0.15"/>
+  <circle cx="300" cy="260" r="40" fill="#FFFFFF" opacity="0.9"/>
+  <circle cx="300" cy="260" r="28" fill="#FF8FAB"/>
+  <rect x="240" y="180" width="40" height="15" rx="4" fill="#2B2730" opacity="0.15"/>
+  
+  <!-- Sparkles -->
+  <polygon points="300,120 304,130 314,134 304,138 300,148 296,138 286,134 296,130" fill="#FFFFFF"/>
+  <polygon points="440,220 443,228 451,230 443,232 440,240 437,232 429,230 437,228" fill="#FFFFFF"/>
+  <polygon points="160,280 163,288 171,290 163,292 160,300 157,292 149,290 157,288" fill="#FFFFFF"/>
+
+  <text x="300" y="440" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="600" fill="#2B2730" text-anchor="middle">Sunny Moments</text>
+  <text x="300" y="470" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" fill="#8A7F86" text-anchor="middle">Replace with your photo in /public/images/</text>
+</svg>
