@@ -37,109 +37,31 @@ export function MusicPlayer({
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const synthCtxRef = useRef<AudioContext | null>(null);
-  const synthIntervalRef = useRef<NodeJS.Timeout | null>(null);
-  const isSynthActiveRef = useRef<boolean>(false);
 
   const activeMusicSource = customAudioUrl || musicUrl;
-
-  // Procedural gentle romantic guitar/piano arpeggio fallback
-  const startSynthMelody = useCallback(() => {
-    if (typeof window === "undefined") return;
-    try {
-      const AudioCtx =
-        window.AudioContext ||
-        (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      if (!synthCtxRef.current) {
-        synthCtxRef.current = new AudioCtx();
-      }
-      const ctx = synthCtxRef.current;
-      if (ctx.state === "suspended") {
-        ctx.resume();
-      }
-
-      const scale = [293.66, 369.99, 440.0, 493.88, 554.37, 587.33, 659.25, 739.99];
-      const melodySteps = [0, 2, 4, 5, 4, 2, 1, 3, 0, 3, 5, 6, 5, 3, 2, 1];
-      let step = 0;
-
-      const playNote = () => {
-        if (!synthCtxRef.current || synthCtxRef.current.state !== "running" || !isSynthActiveRef.current)
-          return;
-        const noteIndex = melodySteps[step % melodySteps.length];
-        const freq = scale[noteIndex % scale.length];
-        step++;
-
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-
-        osc.type = "sine";
-        osc.frequency.setValueAtTime(freq, ctx.currentTime);
-
-        const targetVolume = isMuted ? 0 : 0.038;
-        gain.gain.setValueAtTime(0.0001, ctx.currentTime);
-        gain.gain.linearRampToValueAtTime(targetVolume, ctx.currentTime + 0.06);
-        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.4);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc.start();
-        osc.stop(ctx.currentTime + 1.45);
-      };
-
-      isSynthActiveRef.current = true;
-      playNote();
-      synthIntervalRef.current = setInterval(playNote, 700);
-    } catch {
-      // Audio context error
-    }
-  }, [isMuted]);
-
-  const stopSynthMelody = useCallback(() => {
-    isSynthActiveRef.current = false;
-    if (synthIntervalRef.current) {
-      clearInterval(synthIntervalRef.current);
-      synthIntervalRef.current = null;
-    }
-    if (synthCtxRef.current && synthCtxRef.current.state === "running") {
-      try {
-        synthCtxRef.current.suspend();
-      } catch {
-        // suspend error
-      }
-    }
-  }, []);
 
   const togglePlay = useCallback(() => {
     setShowHint(false);
 
+    if (!audioRef.current) return;
+
     if (isPlaying) {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-      stopSynthMelody();
+      audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      if (audioRef.current && activeMusicSource) {
-        audioRef.current.muted = isMuted;
-        audioRef.current.volume = 0.65;
-        audioRef.current
-          .play()
-          .then(() => {
-            stopSynthMelody();
-            setIsPlaying(true);
-          })
-          .catch(() => {
-            // If audio file doesn't exist yet, fallback to synthesizer
-            startSynthMelody();
-            setIsPlaying(true);
-          });
-      } else {
-        startSynthMelody();
-        setIsPlaying(true);
-      }
+      audioRef.current.muted = isMuted;
+      audioRef.current.volume = 0.8;
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch((err) => {
+          console.warn("Audio play prevented or pending user interaction:", err);
+          // Retry on user interaction
+        });
     }
-  }, [isPlaying, isMuted, activeMusicSource, startSynthMelody, stopSynthMelody]);
+  }, [isPlaying, isMuted]);
 
   const toggleMute = useCallback(
     (e: React.MouseEvent) => {
@@ -169,7 +91,6 @@ export function MusicPlayer({
         audioRef.current
           .play()
           .then(() => {
-            stopSynthMelody();
             setIsPlaying(true);
           })
           .catch(() => {});
@@ -189,16 +110,25 @@ export function MusicPlayer({
       audioRef.current
         .play()
         .then(() => {
-          stopSynthMelody();
           setIsPlaying(true);
         })
         .catch(() => {});
     }
   };
 
+  // Autoplay trigger when user starts the journey
   useEffect(() => {
-    if (autoPlayTrigger && !isPlaying) {
-      togglePlay();
+    if (autoPlayTrigger && !isPlaying && audioRef.current) {
+      audioRef.current.muted = isMuted;
+      audioRef.current.volume = 0.8;
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(() => {
+          // Browser prevented autoplay before interaction
+        });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoPlayTrigger]);
@@ -206,30 +136,43 @@ export function MusicPlayer({
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowHint(false);
-    }, 9000);
+    }, 8000);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    const audioElement = audioRef.current;
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const onPlay = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
+
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
+
     return () => {
-      stopSynthMelody();
-      if (audioElement) {
-        audioElement.pause();
-      }
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
+      audio.pause();
     };
-  }, [stopSynthMelody]);
+  }, []);
 
   return (
     <>
       <div className="fixed top-4 right-4 sm:top-5 sm:right-5 z-50 flex flex-col items-end gap-2 select-none">
         {/* Initial Instruction Pill Banner */}
         {showHint && !isPlaying && (
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-bday-secondary/80 shadow-lg text-xs font-medium text-bday-text animate-bounce duration-1000">
+          <div
+            onClick={togglePlay}
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-bday-secondary/80 shadow-lg text-xs font-medium text-bday-text animate-bounce duration-1000 cursor-pointer hover:bg-white"
+          >
             <Sparkles className="w-3.5 h-3.5 text-bday-accent fill-bday-accent" />
             <span>Nyalakan suaranya untuk pengalaman terbaik ✨</span>
             <button
-              onClick={() => setShowHint(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowHint(false);
+              }}
               aria-label="Tutup petunjuk suara"
               className="p-0.5 rounded-full hover:bg-black/5 text-bday-muted hover:text-bday-text transition-colors"
             >
@@ -295,7 +238,7 @@ export function MusicPlayer({
           {/* Play/Pause Main Button */}
           <button
             onClick={togglePlay}
-            aria-label={isPlaying ? "Jeda musik" : "Putar lagu"}
+            aria-label={isPlaying ? "Jeda musik" : "Putar lagu Kita Lewati Berdua"}
             className={`relative flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full transition-all duration-300 ${
               isPlaying
                 ? "bg-gradient-to-r from-bday-primary to-bday-primary-hover text-white shadow-md shadow-bday-primary/30 scale-105"
@@ -315,18 +258,18 @@ export function MusicPlayer({
           </button>
         </div>
 
-        {/* Hidden HTML5 Audio Element with fallback handling */}
+        {/* HTML5 Audio Element */}
         <audio
           ref={audioRef}
           src={activeMusicSource}
           loop
           preload="auto"
-          onError={() => {
-            if (isPlaying && !customAudioUrl) {
-              startSynthMelody();
-            }
-          }}
-        />
+          playsInline
+        >
+          <source src={activeMusicSource} type="audio/mpeg" />
+          <source src="/music/kita-lewati-berdua.mp3" type="audio/mpeg" />
+          <source src="/music/kita%20lewati%20berdua.mp3" type="audio/mpeg" />
+        </audio>
 
         {/* Hidden File Input */}
         <input
@@ -365,7 +308,7 @@ export function MusicPlayer({
 
             <div className="space-y-4 text-xs sm:text-sm text-bday-text">
               <div className="p-3.5 rounded-2xl bg-bday-subtle/50 border border-bday-secondary/40 space-y-1">
-                <p className="font-semibold text-bday-text">Lagu yang Dipilih:</p>
+                <p className="font-semibold text-bday-text">Lagu yang Terpasang:</p>
                 <p className="text-bday-primary font-bold text-sm">
                   {customTrackName}
                 </p>
@@ -421,10 +364,10 @@ export function MusicPlayer({
               <div className="p-3 rounded-xl bg-amber-50/80 border border-amber-200/60 text-[11px] text-amber-900 space-y-1">
                 <p className="font-bold flex items-center gap-1 text-amber-800">
                   <Sparkles className="w-3 h-3 text-amber-600" />
-                  <span>Tips Penyimpanan Permanen:</span>
+                  <span>Penyimpanan Permanen di Netlify:</span>
                 </p>
                 <p>
-                  Untuk membuat lagu otomatis terpasang selamanya di website ini, cukup salin/masukkan file lagu MP3 Anda ke dalam folder proyek:
+                  File MP3 sudah terpasang di folder:
                 </p>
                 <code className="block bg-white px-2 py-1 rounded border border-amber-200 text-[10px] font-mono font-bold text-amber-950 break-all select-all">
                   public/music/kita-lewati-berdua.mp3
