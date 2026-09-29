@@ -42,14 +42,14 @@ export function PersonalLetter({ onNext }: PersonalLetterProps) {
       className="relative min-h-[100dvh] w-full flex flex-col justify-between px-4 sm:px-6 py-12 max-w-3xl mx-auto select-none"
     >
       {/* Header */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-6">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-bday-secondary/60 text-xs font-semibold tracking-widest uppercase text-bday-muted mb-3 shadow-sm"
+          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/85 border border-bday-secondary/70 text-xs font-semibold tracking-widest uppercase text-bday-muted mb-3 shadow-sm"
         >
           <BookMarked className="w-3.5 h-3.5 text-bday-primary" />
-          <span>A Personal Letter</span>
+          <span>Surat Pribadi dari Lubuk Hati</span>
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 15 }}
@@ -62,7 +62,7 @@ export function PersonalLetter({ onNext }: PersonalLetterProps) {
       </div>
 
       {/* Main Letter Card */}
-      <div className="relative my-auto w-full bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-bday-secondary/50 shadow-2xl space-y-6">
+      <div className="relative my-auto w-full bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-bday-secondary/50 shadow-2xl space-y-5">
         {/* Decorative Top Accent */}
         <div className="flex items-center justify-center gap-2 text-bday-secondary mb-2">
           <span className="w-12 h-[1px] bg-bday-secondary/60" />
@@ -71,7 +71,7 @@ export function PersonalLetter({ onNext }: PersonalLetterProps) {
         </div>
 
         {/* Progressive Paragraphs */}
-        <div className="space-y-5 text-bday-text/90 font-serif leading-relaxed text-base sm:text-lg md:text-xl">
+        <div className="space-y-4 text-bday-text/90 font-serif leading-relaxed text-base sm:text-lg">
           {paragraphs.slice(0, revealedIndex + 1).map((para, index) => {
             const isLatest = index === revealedIndex;
 
@@ -91,7 +91,7 @@ export function PersonalLetter({ onNext }: PersonalLetterProps) {
           })}
         </div>
 
-        {/* Signature (Shown once letter is complete) */}
+        {/* Signature */}
         <AnimatePresence>
           {isFullyRevealed && (
             <motion.div
@@ -104,7 +104,7 @@ export function PersonalLetter({ onNext }: PersonalLetterProps) {
                 {letter.signature}
               </p>
               <p className="text-xs text-bday-muted font-sans uppercase tracking-widest">
-                Always &amp; Forever
+                Hari Ini, Esok, dan Selamanya
               </p>
             </motion.div>
           )}
@@ -117,8 +117,8 @@ export function PersonalLetter({ onNext }: PersonalLetterProps) {
           <Sparkles className="w-4 h-4 text-bday-accent" />
           <span>
             {isFullyRevealed
-              ? "Letter completed ✨"
-              : `Reading ${revealedIndex + 1} of ${paragraphs.length} thoughts`}
+              ? "Surat selesai dibaca ✨"
+              : `Membaca ${revealedIndex + 1} dari ${paragraphs.length} ungkapan hati`}
           </span>
         </div>
 
@@ -128,15 +128,15 @@ export function PersonalLetter({ onNext }: PersonalLetterProps) {
               onClick={handleRevealAll}
               className="px-4 py-2 text-xs text-bday-muted hover:text-bday-text transition-colors"
             >
-              Read full letter
+              Tampilkan Semua
             </button>
           )}
 
           <button
             onClick={handleRevealNext}
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-bday-text text-white text-sm sm:text-base font-medium shadow-md hover:bg-bday-primary hover:shadow-lg transition-all transform active:scale-95"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-bday-text text-white text-sm sm:text-base font-semibold shadow-md hover:bg-bday-primary hover:shadow-lg transition-all transform active:scale-95"
           >
-            <span>{isFullyRevealed ? "Time for the Cake 🎂" : "Read Next Thought"}</span>
+            <span>{isFullyRevealed ? "Tiup Lilin Ulang Tahun 🎂" : "Lanjut Membaca"}</span>
             {isFullyRevealed ? (
               <ArrowRight className="w-4 h-4 text-bday-accent" />
             ) : (

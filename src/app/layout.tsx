@@ -29,21 +29,34 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "A Little Birthday Journey ✨ | A Special Experience",
-  description: "A little something made especially for you. An interactive birthday journey filled with memories, wishes, and love.",
-  keywords: ["birthday", "interactive story", "celebration", "gift", "memories"],
-  authors: [{ name: "A Little Birthday Journey" }],
+  title: "Selamat Ulang Tahun & Happy 1st Anniversary, Ibrahim Septiardy! ❤️",
+  description:
+    "Sebuah persembahan kecil untuk merayakan hari spesialmu dan perjalanan satu tahun kita bersama. Dibuat dengan segenap cinta khusus untuk Ibrahim Septiardy.",
+  keywords: [
+    "Ibrahim Septiardy",
+    "ulang tahun",
+    "1st anniversary",
+    "perayaan satu tahun",
+    "kenangan bersama",
+    "surat cinta",
+  ],
+  authors: [{ name: "Pasangan Tersayang" }],
   openGraph: {
-    title: "A Little Birthday Journey ✨",
-    description: "A little something made especially for you. Open to reveal your birthday surprise.",
+    title: "Selamat Ulang Tahun & Happy 1st Anniversary, Ibrahim Septiardy! ❤️",
+    description:
+      "Sebuah persembahan kecil untuk merayakan hari spesialmu dan perjalanan satu tahun kita bersama.",
     type: "website",
-    locale: "en_US",
-    siteName: "A Little Birthday Journey",
+    locale: "id_ID",
+    siteName: "Perayaan Spesial Ibrahim Septiardy",
   },
   twitter: {
     card: "summary_large_image",
-    title: "A Little Birthday Journey ✨",
-    description: "A little something made especially for you.",
+    title: "Selamat Ulang Tahun & Happy 1st Anniversary, Ibrahim Septiardy! ❤️",
+    description:
+      "Sebuah persembahan kecil untuk merayakan hari spesialmu dan perjalanan satu tahun kita bersama.",
+  },
+  icons: {
+    icon: "/favicon.svg",
   },
 };
 
@@ -53,8 +66,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${plusJakarta.variable} ${caveat.variable}`}>
-      <body className="font-sans bg-bday-bg text-bday-text min-h-screen selection:bg-bday-secondary selection:text-bday-text">
+    <html lang="id" className={`${playfair.variable} ${plusJakarta.variable} ${caveat.variable}`}>
+      <body className="font-sans bg-bday-bg text-bday-text min-h-screen selection:bg-bday-secondary selection:text-bday-text antialiased">
         {children}
       </body>
     </html>

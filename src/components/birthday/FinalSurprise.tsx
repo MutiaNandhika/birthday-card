@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Gift, Sparkles, ArrowRight, Award, Copy, Check } from "lucide-react";
+import { Gift, Sparkles, ArrowRight, Award, Copy, Check, Heart } from "lucide-react";
 import { birthdayData } from "@/data/birthday";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 import { triggerCelebrationConfetti, triggerStarBurst } from "@/components/common/ConfettiEffect";
@@ -33,9 +33,11 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
 
   const copyCode = (code: string) => {
     playSparkle();
-    navigator?.clipboard?.writeText(code);
-    setCopiedVoucher(true);
-    setTimeout(() => setCopiedVoucher(false), 2000);
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(code);
+      setCopiedVoucher(true);
+      setTimeout(() => setCopiedVoucher(false), 2000);
+    }
   };
 
   return (
@@ -57,14 +59,14 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
             transition={{ duration: 0.7 }}
             className="my-auto flex flex-col items-center max-w-md"
           >
-            <span className="text-xs font-semibold uppercase tracking-widest text-bday-muted mb-3">
-              One more thing...
+            <span className="text-xs font-bold uppercase tracking-widest text-bday-primary bg-white/80 px-3.5 py-1 rounded-full border border-bday-secondary/60 mb-3 shadow-sm">
+              Satu Hal Lagi...
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-bday-text leading-tight">
-              &ldquo;And that is the end of the journey...&rdquo;
+              &ldquo;Dan itulah akhir dari perjalanan cerita kita...&rdquo;
             </h2>
             <p className="mt-4 text-sm sm:text-base text-bday-muted font-normal">
-              Or at least, that&apos;s what you thought. 😉
+              Eits... jangan tutup dulu ya, masih ada yang ketinggalan! 😉
             </p>
 
             <motion.div
@@ -78,7 +80,7 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
                 className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-bday-primary text-white font-semibold text-base shadow-lg hover:bg-bday-primary-hover hover:shadow-xl transition-all transform active:scale-95"
               >
                 <Sparkles className="w-4 h-4 text-bday-accent animate-spin" />
-                <span>Wait, what is this? 👀</span>
+                <span>Tunggu, ada apa ini? 👀</span>
               </button>
             </motion.div>
           </motion.div>
@@ -94,7 +96,7 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
             transition={{ duration: 0.6 }}
             className="my-auto flex flex-col items-center max-w-md w-full"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-bday-secondary/60 text-xs font-semibold tracking-widest uppercase text-bday-muted mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/85 border border-bday-secondary/70 text-xs font-semibold tracking-widest uppercase text-bday-muted mb-3 shadow-sm">
               <Gift className="w-3.5 h-3.5 text-bday-primary" />
               <span>{gift.giftTag}</span>
             </div>
@@ -106,7 +108,7 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
               {gift.subtitle}
             </p>
 
-            {/* Interactive 3D Gift Box Illustration */}
+            {/* Interactive Gift Box Illustration */}
             <div
               onClick={handleOpenGift}
               className="group relative my-8 w-48 h-48 sm:w-56 sm:h-56 cursor-pointer flex items-center justify-center"
@@ -115,24 +117,24 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
 
               <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-2xl overflow-visible transition-transform duration-300 group-hover:scale-105">
                 {/* Box Base */}
-                <rect x="35" y="80" width="130" height="95" rx="12" fill="#FF8FAB" stroke="#FA7296" stroke-width="2" />
+                <rect x="35" y="80" width="130" height="95" rx="12" fill="#FF8FAB" stroke="#FA7296" strokeWidth="2" />
                 {/* Vertical Ribbon */}
                 <rect x="88" y="80" width="24" height="95" fill="#FFD166" />
-                
+
                 {/* Box Lid */}
                 <g className="transition-transform duration-300 group-hover:-translate-y-2">
-                  <rect x="25" y="55" width="150" height="30" rx="8" fill="#FFC2D1" stroke="#FF8FAB" stroke-width="2" />
+                  <rect x="25" y="55" width="150" height="30" rx="8" fill="#FFC2D1" stroke="#FF8FAB" strokeWidth="2" />
                   <rect x="88" y="55" width="24" height="30" fill="#FFD166" />
                   {/* Ribbon Bow Left */}
-                  <path d="M 90 55 C 60 20, 60 50, 90 55" fill="#FFD166" stroke="#FA7296" stroke-width="1.5" />
+                  <path d="M 90 55 C 60 20, 60 50, 90 55" fill="#FFD166" stroke="#FA7296" strokeWidth="1.5" />
                   {/* Ribbon Bow Right */}
-                  <path d="M 110 55 C 140 20, 140 50, 110 55" fill="#FFD166" stroke="#FA7296" stroke-width="1.5" />
+                  <path d="M 110 55 C 140 20, 140 50, 110 55" fill="#FFD166" stroke="#FA7296" strokeWidth="1.5" />
                   <circle cx="100" cy="55" r="7" fill="#FF8FAB" />
                 </g>
               </svg>
 
               <span className="absolute -bottom-2 px-4 py-1.5 rounded-full bg-white font-semibold text-xs text-bday-text shadow-md border border-bday-secondary">
-                Tap to unwrap 🎁
+                Sentuh untuk membuka kado 🎁
               </span>
             </div>
 
@@ -140,7 +142,7 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
               onClick={handleOpenGift}
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-bday-text text-white font-semibold text-sm sm:text-base shadow-lg hover:bg-bday-primary transition-all transform active:scale-95"
             >
-              <span>Open Surprise Gift</span>
+              <span>Buka Hadiah Kejutan</span>
               <Gift className="w-4 h-4 text-bday-accent" />
             </button>
           </motion.div>
@@ -160,18 +162,19 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
             </div>
 
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-bday-primary">
-                VIP Keepsake Unlocked
+              <span className="text-xs font-bold uppercase tracking-widest text-bday-primary flex items-center justify-center gap-1">
+                <Heart className="w-3.5 h-3.5 fill-bday-primary" />
+                <span>Hadiah Spesial Berhasil Dibuka</span>
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-bday-text mt-1">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-bday-text mt-1.5">
                 {gift.revealedTitle}
               </h3>
-              <p className="mt-3 text-sm sm:text-base text-bday-text/90 leading-relaxed">
+              <p className="mt-3 text-sm sm:text-base text-bday-text/90 leading-relaxed font-normal">
                 {gift.revealedMessage}
               </p>
             </div>
 
-            {/* Revealed Graphic / Certificate Card */}
+            {/* Revealed Graphic */}
             {gift.revealedImage && (
               <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-bday-secondary/50 shadow-inner bg-bday-subtle">
                 <Image
@@ -187,8 +190,8 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
             {gift.specialVoucher && (
               <div className="p-4 rounded-2xl bg-bday-subtle/70 border border-bday-secondary/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
                 <div>
-                  <p className="text-xs font-semibold text-bday-muted uppercase tracking-wider">
-                    Voucher Pass
+                  <p className="text-[10px] font-bold text-bday-primary uppercase tracking-wider">
+                    Kode Tiket Cinta
                   </p>
                   <p className="font-mono text-xs sm:text-sm font-bold text-bday-text">
                     {gift.specialVoucher.code}
@@ -199,17 +202,17 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
                 </div>
                 <button
                   onClick={() => copyCode(gift.specialVoucher?.code || "")}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-bday-secondary text-xs font-medium text-bday-text hover:bg-bday-secondary/30 transition-all"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white border border-bday-secondary text-xs font-semibold text-bday-text hover:bg-bday-secondary/30 transition-all flex-shrink-0 shadow-sm"
                 >
                   {copiedVoucher ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-green-600" />
-                      <span className="text-green-600">Copied!</span>
+                      <span className="text-green-600">Tersalin!</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5 text-bday-primary" />
-                      <span>Copy Pass</span>
+                      <span>Salin Voucher</span>
                     </>
                   )}
                 </button>
@@ -223,9 +226,9 @@ export function FinalSurprise({ onNext }: FinalSurpriseProps) {
                   playClick();
                   onNext();
                 }}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-bday-text text-white font-medium text-sm sm:text-base shadow-lg hover:bg-bday-primary transition-all transform active:scale-95"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-bday-text text-white font-semibold text-sm sm:text-base shadow-lg hover:bg-bday-primary transition-all transform active:scale-95"
               >
-                <span>Final Birthday Message</span>
+                <span>Pesan Penutup &amp; Doa Abadi</span>
                 <ArrowRight className="w-4 h-4 text-bday-accent" />
               </button>
             </div>

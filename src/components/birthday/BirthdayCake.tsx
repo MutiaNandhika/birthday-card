@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Mic, Wind, ArrowRight, RefreshCw } from "lucide-react";
+import { Sparkles, Mic, Wind, ArrowRight, RefreshCw, Heart } from "lucide-react";
 import { birthdayData } from "@/data/birthday";
 import { useMicBlow } from "@/hooks/useMicBlow";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
@@ -90,7 +90,7 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
     >
       {/* Header Prompt */}
       <div className="mb-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-bday-secondary/60 text-xs font-semibold tracking-widest uppercase text-bday-muted mb-2">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/85 border border-bday-secondary/70 text-xs font-semibold tracking-widest uppercase text-bday-muted mb-2 shadow-sm">
           <Sparkles className="w-3.5 h-3.5 text-bday-accent" />
           <span>{birthdayData.cake.heading}</span>
         </div>
@@ -102,9 +102,9 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="space-y-1"
+              className="space-y-1.5"
             >
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-bday-text">
+              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-bday-text">
                 {stepIndex === 0
                   ? birthdayData.cake.step1
                   : stepIndex === 1
@@ -112,7 +112,9 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
                   : birthdayData.cake.step3}
               </h2>
               <p className="text-xs sm:text-sm text-bday-muted">
-                {stepIndex < 2 ? "Take your time..." : "Blow into your mic or hold the button below"}
+                {stepIndex < 2
+                  ? "Ambil nafas dan resapi momen ini..."
+                  : "Tiup ke arah mic atau tekan dan tahan tombol di bawah"}
               </p>
             </motion.div>
           ) : (
@@ -120,10 +122,11 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
               key="wish-sent"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="space-y-1"
+              className="space-y-1.5"
             >
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-bday-primary">
-                {birthdayData.cake.candleBlownMessage}
+              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-bday-primary flex items-center justify-center gap-2">
+                <Heart className="w-6 h-6 fill-bday-primary text-bday-primary animate-pulse" />
+                <span>{birthdayData.cake.candleBlownMessage}</span>
               </h2>
               <p className="text-xs sm:text-sm text-bday-muted max-w-md mx-auto">
                 {birthdayData.cake.candleBlownSubtext}
@@ -134,19 +137,19 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
       </div>
 
       {/* Handcrafted Animated SVG Birthday Cake */}
-      <div className="relative my-auto w-full max-w-[340px] sm:max-w-[400px] aspect-[4/3] flex items-center justify-center">
+      <div className="relative my-auto w-full max-w-[320px] sm:max-w-[380px] aspect-[4/3] flex items-center justify-center">
         <svg
           viewBox="0 0 400 320"
           className="w-full h-full drop-shadow-xl overflow-visible"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Cake Stand Plate */}
-          <ellipse cx="200" cy="290" rx="170" ry="20" fill="#FFFFFF" stroke="#FFC2D1" stroke-width="4" />
+          <ellipse cx="200" cy="290" rx="170" ry="20" fill="#FFFFFF" stroke="#FFC2D1" strokeWidth="4" />
           <ellipse cx="200" cy="290" rx="145" ry="12" fill="#FFE5EC" opacity="0.6" />
-          <path d="M170 295 L160 315 L240 315 L230 295 Z" fill="#FFFFFF" stroke="#FFC2D1" stroke-width="3" />
+          <path d="M170 295 L160 315 L240 315 L230 295 Z" fill="#FFFFFF" stroke="#FFC2D1" strokeWidth="3" />
 
           {/* Bottom Cake Layer */}
-          <rect x="70" y="205" width="260" height="75" rx="14" fill="#FFFFFF" stroke="#FFC2D1" stroke-width="3" />
+          <rect x="70" y="205" width="260" height="75" rx="14" fill="#FFFFFF" stroke="#FFC2D1" strokeWidth="3" />
           {/* Frosting Swirls Bottom Layer */}
           <path
             d="M70 230 Q 90 245 110 230 Q 130 245 150 230 Q 170 245 190 230 Q 210 245 230 230 Q 250 245 270 230 Q 290 245 310 230 Q 330 245 330 230 L 330 205 L 70 205 Z"
@@ -161,7 +164,7 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
           <circle cx="295" cy="255" r="3.5" fill="#FF8FAB" />
 
           {/* Top Cake Layer */}
-          <rect x="115" y="145" width="170" height="65" rx="12" fill="#FFFFFF" stroke="#FFC2D1" stroke-width="3" />
+          <rect x="115" y="145" width="170" height="65" rx="12" fill="#FFFFFF" stroke="#FFC2D1" strokeWidth="3" />
           {/* Frosting Swirls Top Layer */}
           <path
             d="M115 168 Q 135 180 155 168 Q 175 180 195 168 Q 215 180 235 168 Q 255 180 275 168 Q 285 175 285 168 L 285 145 L 115 145 Z"
@@ -175,18 +178,18 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
 
           {/* 3 Candles */}
           {/* Candle 1 (Left) */}
-          <rect x="150" y="95" width="10" height="50" rx="4" fill="#FFD166" stroke="#2B2730" stroke-width="1" />
-          <path d="M155 95 L155 85" stroke="#2B2730" stroke-width="2" stroke-linecap="round" />
+          <rect x="150" y="95" width="10" height="50" rx="4" fill="#FFD166" stroke="#2B2730" strokeWidth="1" />
+          <path d="M155 95 L155 85" stroke="#2B2730" strokeWidth="2" strokeLinecap="round" />
 
           {/* Candle 2 (Center - Main) */}
-          <rect x="195" y="85" width="10" height="60" rx="4" fill="#FF8FAB" stroke="#2B2730" stroke-width="1" />
-          <path d="M200 85 L200 75" stroke="#2B2730" stroke-width="2" stroke-linecap="round" />
+          <rect x="195" y="85" width="10" height="60" rx="4" fill="#FF8FAB" stroke="#2B2730" strokeWidth="1" />
+          <path d="M200 85 L200 75" stroke="#2B2730" strokeWidth="2" strokeLinecap="round" />
 
           {/* Candle 3 (Right) */}
-          <rect x="240" y="95" width="10" height="50" rx="4" fill="#FFD166" stroke="#2B2730" stroke-width="1" />
-          <path d="M245 95 L245 85" stroke="#2B2730" stroke-width="2" stroke-linecap="round" />
+          <rect x="240" y="95" width="10" height="50" rx="4" fill="#FFD166" stroke="#2B2730" strokeWidth="1" />
+          <path d="M245 95 L245 85" stroke="#2B2730" strokeWidth="2" strokeLinecap="round" />
 
-          {/* Candle Flames (Flickering with glow or Smoke puff when extinguished) */}
+          {/* Candle Flames */}
           {!isCandleBlown ? (
             <g className="flame-glow">
               {/* Flame 1 */}
@@ -215,24 +218,24 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
                 d="M155 80 Q145 65 158 50 T150 35"
                 fill="none"
                 stroke="#8A7F86"
-                stroke-width="3"
-                stroke-linecap="round"
+                strokeWidth="3"
+                strokeLinecap="round"
                 className="animate-pulse"
               />
               <path
                 d="M200 70 Q215 50 195 35 T205 15"
                 fill="none"
                 stroke="#8A7F86"
-                stroke-width="3.5"
-                stroke-linecap="round"
+                strokeWidth="3.5"
+                strokeLinecap="round"
                 className="animate-pulse"
               />
               <path
                 d="M245 80 Q255 65 240 50 T250 35"
                 fill="none"
                 stroke="#8A7F86"
-                stroke-width="3"
-                stroke-linecap="round"
+                strokeWidth="3"
+                strokeLinecap="round"
                 className="animate-pulse"
               />
             </g>
@@ -250,14 +253,18 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
                   playClick();
                   setStepIndex((prev) => prev + 1);
                 }}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-bday-text text-white text-sm sm:text-base font-medium shadow-md hover:bg-bday-primary transition-all"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-bday-text text-white text-sm sm:text-base font-semibold shadow-md hover:bg-bday-primary transition-all"
               >
-                <span>{stepIndex === 0 ? "I've closed my eyes" : "I'm ready to make a wish ✨"}</span>
+                <span>
+                  {stepIndex === 0
+                    ? "Sudah Kupejamkan Mataku 😌"
+                    : "Sudah Siap Memanjatkan Doa ✨"}
+                </span>
                 <ArrowRight className="w-4 h-4 text-bday-accent" />
               </button>
             ) : (
               <div className="flex flex-col items-center gap-3 w-full">
-                {/* Hold to blow button with radial progress indicator */}
+                {/* Hold to blow button */}
                 <button
                   onMouseDown={startHolding}
                   onMouseUp={stopHolding}
@@ -276,7 +283,9 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
 
                   <Wind className={`w-5 h-5 text-bday-primary ${isHolding ? "animate-spin" : ""}`} />
                   <span className="relative z-10">
-                    {isHolding ? `Blowing... ${holdProgress}%` : birthdayData.cake.blowPromptTouch}
+                    {isHolding
+                      ? `Sedang meniup lilin... ${holdProgress}%`
+                      : birthdayData.cake.blowPromptTouch}
                   </span>
                 </button>
 
@@ -289,7 +298,7 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
                         className="inline-flex items-center gap-1.5 hover:text-bday-text underline transition-colors"
                       >
                         <Mic className="w-3.5 h-3.5 text-bday-primary" />
-                        <span>Enable microphone blow</span>
+                        <span>Aktifkan tiup lewat mikrofon</span>
                       </button>
                     ) : (
                       <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-bday-secondary">
@@ -297,7 +306,7 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-bday-primary opacity-75"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-bday-primary"></span>
                         </span>
-                        <span>Mic Active: Blow into your device! (Level: {currentVolume}%)</span>
+                        <span>Mikrofon Aktif: Tiup ke arah perangkat! (Level: {currentVolume}%)</span>
                       </div>
                     )}
                   </div>
@@ -317,7 +326,7 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
               className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-medium text-bday-muted hover:text-bday-text border border-bday-secondary bg-white shadow-sm transition-all"
             >
               <RefreshCw className="w-3.5 h-3.5" />
-              <span>Light candles again</span>
+              <span>Nyalakan Lilin Lagi</span>
             </button>
 
             <button
@@ -327,7 +336,7 @@ export function BirthdayCake({ onNext }: BirthdayCakeProps) {
               }}
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-bday-text text-white text-sm sm:text-base font-semibold shadow-lg hover:bg-bday-primary hover:shadow-xl transition-all transform active:scale-95"
             >
-              <span>See What&apos;s Next</span>
+              <span>Buka Hadiah Spesial 🎁</span>
               <ArrowRight className="w-4 h-4 text-bday-accent" />
             </button>
           </motion.div>

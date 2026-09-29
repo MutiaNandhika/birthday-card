@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, ArrowRight, Sparkles, BookOpen } from "lucide-react";
+import { ChevronRight, ChevronLeft, ArrowRight, Sparkles, BookOpen, Heart } from "lucide-react";
 import { birthdayData, StoryChapter } from "@/data/birthday";
 import { useSoundEffects } from "@/hooks/useSoundEffects";
 
@@ -47,16 +47,16 @@ export function Story({ onNext }: StoryProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.7 }}
-      className="relative min-h-[100dvh] w-full flex flex-col justify-between px-4 sm:px-6 py-12 max-w-4xl mx-auto"
+      className="relative min-h-[100dvh] w-full flex flex-col justify-between px-4 sm:px-6 py-12 max-w-4xl mx-auto select-none"
     >
       {/* Top Section Header */}
       <div className="text-center mb-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-bday-secondary/60 text-xs font-semibold tracking-widest uppercase text-bday-muted mb-2">
+        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/85 border border-bday-secondary/70 text-xs font-semibold tracking-widest uppercase text-bday-muted mb-2 shadow-sm">
           <BookOpen className="w-3.5 h-3.5 text-bday-primary" />
-          <span>Our Story Timeline</span>
+          <span>Perjalanan Satu Tahun Bersama</span>
         </div>
         <h2 className="font-serif text-3xl sm:text-4xl font-bold text-bday-text">
-          Moments That Shaped Us
+          Babak-Babak Cerita Kita
         </h2>
       </div>
 
@@ -68,9 +68,9 @@ export function Story({ onNext }: StoryProps) {
             <button
               key={chapter.id}
               onClick={() => handleSelectChapter(index)}
-              className={`px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
+              className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
                 isActive
-                  ? "bg-bday-text text-white shadow-sm"
+                  ? "bg-bday-text text-white shadow-md"
                   : "bg-white/80 text-bday-muted hover:text-bday-text border border-bday-secondary/50"
               }`}
             >
@@ -89,9 +89,9 @@ export function Story({ onNext }: StoryProps) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -25 }}
             transition={{ duration: 0.45, ease: "easeInOut" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-bday-secondary/40 shadow-xl"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-bday-secondary/40 shadow-xl"
           >
-            {/* Visual Image with Polaroid/Editorial Frame */}
+            {/* Visual Image with Photo Frame */}
             <div className="relative w-full aspect-[4/3] sm:aspect-square rounded-2xl overflow-hidden shadow-md bg-bday-subtle group">
               <Image
                 src={currentChapter.image}
@@ -103,8 +103,9 @@ export function Story({ onNext }: StoryProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
               {currentChapter.dateOrYear && (
-                <span className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-bday-text text-xs font-semibold shadow-sm">
-                  {currentChapter.dateOrYear}
+                <span className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-bday-text text-xs font-semibold shadow-sm flex items-center gap-1">
+                  <Heart className="w-3 h-3 text-bday-primary fill-bday-primary" />
+                  <span>{currentChapter.dateOrYear}</span>
                 </span>
               )}
             </div>
@@ -124,7 +125,7 @@ export function Story({ onNext }: StoryProps) {
                   )}
                 </div>
 
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-bday-text mt-1">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-bday-text mt-1.5">
                   {currentChapter.title}
                 </h3>
 
@@ -144,11 +145,11 @@ export function Story({ onNext }: StoryProps) {
               {/* Step counter */}
               <div className="pt-4 flex items-center justify-between border-t border-bday-secondary/30 text-xs text-bday-muted font-medium">
                 <span>
-                  Chapter {currentChapterIndex + 1} of {chapters.length}
+                  Babak {currentChapterIndex + 1} dari {chapters.length}
                 </span>
                 <div className="flex items-center gap-1">
                   <Sparkles className="w-3.5 h-3.5 text-bday-accent" />
-                  <span>Cherished memory</span>
+                  <span>Kenangan Berharga</span>
                 </div>
               </div>
             </div>
@@ -164,18 +165,18 @@ export function Story({ onNext }: StoryProps) {
           className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all ${
             currentChapterIndex === 0
               ? "opacity-30 cursor-not-allowed text-bday-muted"
-              : "bg-white text-bday-text hover:bg-bday-secondary/40 border border-bday-secondary"
+              : "bg-white text-bday-text hover:bg-bday-secondary/40 border border-bday-secondary shadow-sm"
           }`}
         >
           <ChevronLeft className="w-4 h-4" />
-          <span>Previous</span>
+          <span>Sebelumnya</span>
         </button>
 
         <button
           onClick={handleNextChapter}
-          className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-bday-text text-white text-xs sm:text-sm font-medium shadow-md hover:bg-bday-primary hover:shadow-lg transition-all transform active:scale-95"
+          className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-bday-text text-white text-xs sm:text-sm font-semibold shadow-md hover:bg-bday-primary hover:shadow-lg transition-all transform active:scale-95"
         >
-          <span>{isLastChapter ? "View Photo Gallery" : "Next Chapter"}</span>
+          <span>{isLastChapter ? "Buka Galeri 10 Foto Kita" : "Babak Selanjutnya"}</span>
           {isLastChapter ? (
             <ArrowRight className="w-4 h-4 text-bday-accent" />
           ) : (
