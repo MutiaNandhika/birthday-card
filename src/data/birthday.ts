@@ -154,33 +154,33 @@ export const birthdayData: BirthdayData = {
   // [3] STAGE 1: OPENING SCREEN
   // ==========================================
   opening: {
-    greeting: "Selamat Ulang Tahun & Happy 1st Anniversary, Ibrahim Septiardy! ❤️",
-    subGreeting: "Sebuah persembahan kecil untuk merayakan hari spesialmu dan perjalanan satu tahun kita bersama.",
-    buttonText: "Buka Kejutan Spesial ✨",
-    subText: "Nyalakan suaranya untuk pengalaman terbaik ✨",
-    romanticQuote: "Satu tahun penuh tawa, cinta, dan jutaan kenangan manis berdua.",
+    greeting: "Happy Birthday & 1st Anniversary, Ibrahim! ❤️",
+    subGreeting: "Kejutan kecil untuk hari spesialmu dan satu tahun kita bersama. ✨",
+    buttonText: "Buka Kejutan ✨",
+    subText: "Nyalakan musiknya ya 🎵",
+    romanticQuote: "Satu tahun, banyak tawa, cerita, dan kenangan. ❤️",
   },
 
   // ==========================================
   // [4] STAGE 2: REVEAL
   // ==========================================
   reveal: {
-    line1: "Hari ini bukan sekadar pergantian tanggal biasa di kalender...",
-    line2: "Hari ini adalah perayaan hari lahir sosok paling berharga yang mewarnai 365 hari terindah dalam hidupku.",
+    line1: "Hari ini bukan hari biasa...",
+    line2: "Hari ini, aku merayakan kamu dan satu tahun indah yang kita lewati bersama.",
     celebrationText: "Selamat Ulang Tahun & Happy 1st Anniversary, Ibrahim! ❤️",
-    subCelebration: "365 hari penuh cinta, tawa, dan kebersamaan yang tak pernah tergantikan.",
+    subCelebration: "365 hari penuh cerita, tawa, dan kebersamaan. ❤️",
   },
 
   // ==========================================
   // [5] STAGE 3: INTERACTIVE ENVELOPE
   // ==========================================
   envelope: {
-    frontBadge: "UNTUK IBRAHIM SEPTIARDY",
-    promptText: "Sebelum melangkah lebih jauh, buka amplop kecil ini dulu ya...",
-    cardHeading: "Ada satu hal yang selalu ingin kusampaikan padamu:",
-    cardSubheading: "Di hari ulang tahun dan perayaan satu tahun kebersamaan kita:",
-    cardMessage: "Kehadiranmu adalah anugerah terindah. Terima kasih sudah menjadi rumah yang selalu hangat, tempat berkeluh kesah, dan pasangan paling sabar di dunia.",
-    cardFooter: "Sentuh di mana saja untuk melihat cerita kita →",
+    frontBadge: "UNTUK IBRAHIM ❤️",
+    promptText: "Sebelum lanjut, buka amplop ini dulu ya...",
+    cardHeading: "Ada satu hal yang ingin kusampaikan:",
+    cardSubheading: "Di hari spesial ini:",
+    cardMessage: "Terima kasih sudah selalu ada, jadi tempat cerita, tempat pulang, dan partner terbaikku.",
+    cardFooter: "Sentuh untuk melihat cerita kita →",
     sealInitials: "❤️",
   },
 
@@ -192,21 +192,21 @@ export const birthdayData: BirthdayData = {
       id: "chapter-1",
       chapterNumber: "BABAK 01",
       title: "Awal Pertemuan",
-      subtitle: "Detik ketika takdir mempertemukan kita",
-      dateOrYear: "Momen Pertama",
+      subtitle: "Saat pertama kita bertemu",
+      dateOrYear: "Awal Cerita",
       description:
-        "Setiap kisah indah selalu berawal dari sebuah momen sederhana. Mengingat kembali detik awal mengenalmu, aku tak pernah menyangka bahwa kamu akan menjadi sosok yang begitu berarti, mengisi setiap sudut hati, dan mengubah duniaku menjadi jauh lebih berwarna.",
-      image: "/images/memori1.jpg",
+        "Dari pertemuan sederhana, lahir cerita yang ternyata begitu berarti. Aku nggak pernah menyangka kamu akan jadi bagian penting dalam hidupku.",
+      image: "/images/memori11.jpg",
       accentWord: "pertemuan",
     },
     {
       id: "chapter-2",
       chapterNumber: "BABAK 02",
       title: "Tawa & Suka Duka",
-      subtitle: "Menemukan kebahagiaan di setiap kondisi",
-      dateOrYear: "Sepanjang Hari",
+      subtitle: "Tertawa dan melewati semuanya bersama",
+      dateOrYear: "Hari-Hari Kita",
       description:
-        "Bukan hanya tentang hari-hari yang selalu sempurna, melainkan tentang bagaimana kita selalu menemukan alasan untuk tersenyum bersama. Melewati tawa lepas, lelucon receh, hingga saat-saat lelah berdua membuat ikatan kita semakin kuat dan tak terpisahkan.",
+        "Nggak semua hari sempurna, tapi selalu ada alasan untuk tertawa. Dari lelucon receh sampai hari-hari melelahkan, semuanya jadi cerita kita.",
       image: "/images/memori2.jpg",
       accentWord: "kebersamaan",
     },
@@ -214,10 +214,10 @@ export const birthdayData: BirthdayData = {
       id: "chapter-3",
       chapterNumber: "BABAK 03",
       title: "Petualangan Bersama",
-      subtitle: "Menjelajahi jalan dan kenangan berdua",
-      dateOrYear: "Jejak Langkah",
+      subtitle: "Menambah cerita berdua",
+      dateOrYear: "Banyak Cerita",
       description:
-        "Setiap tempat yang kita singgahi dan jalan yang kita lalui selalu terasa jauh lebih hidup saat bersamamu. Kenangan jalan-jalan santai dan momen favorit kita berdua membuktikan bahwa tujuan perjalanan bukanlah tempatnya, melainkan dengan siapa kita melangkah.",
+        "Ke mana pun kita pergi, rasanya selalu lebih seru kalau bareng kamu. Karena yang penting bukan tempatnya, tapi siapa yang menemani.",
       image: "/images/memori3.jpg",
       accentWord: "petualangan",
     },
@@ -225,10 +225,10 @@ export const birthdayData: BirthdayData = {
       id: "chapter-4",
       chapterNumber: "BABAK 04",
       title: "Saling Menerima & Bertumbuh",
-      subtitle: "Proses memahami dan mendewasa bersama",
-      dateOrYear: "Proses Cinta",
+      subtitle: "Belajar memahami satu sama lain",
+      dateOrYear: "Belajar Bersama",
       description:
-        "Satu tahun ini mengajarkan kita arti saling mendengarkan, menurunkan ego, dan belajar menerima kekurangan satu sama lain. Terima kasih telah menjadi pasangan yang selalu sabar membimbingku dan bersama-sama bertumbuh menjadi pribadi yang lebih baik.",
+        "Setahun ini mengajarkan kita untuk saling memahami, mendengar, dan menerima. Terima kasih sudah sabar dan mau tumbuh bareng aku.",
       image: "/images/memori4.jpg",
       accentWord: "kedewasaan",
     },
@@ -236,10 +236,10 @@ export const birthdayData: BirthdayData = {
       id: "chapter-5",
       chapterNumber: "BABAK 05",
       title: "Menuju Masa Depan",
-      subtitle: "Melangkah berdua menggapai esok hari",
-      dateOrYear: "Selamanya",
+      subtitle: "Melangkah ke depan bersama",
+      dateOrYear: "Babak Berikutnya",
       description:
-        "Satu tahun pertama ini adalah fondasi dari babak panjang yang akan terus kita ukir bersama. Semoga langkah kita selalu diridhoi, dijaga dari hal-hal buruk, dan kita bisa terus melewati segala musim berdua—seperti lagu 'Kita Lewati Berdua'.",
+        "Satu tahun ini baru awal. Semoga kita terus saling menjaga, saling menguatkan, dan melewati banyak cerita berikutnya bersama.",
       image: "/images/memori10.jpg",
       accentWord: "selamanya",
     },
@@ -251,13 +251,13 @@ export const birthdayData: BirthdayData = {
   memories: [
     {
       id: "mem-1",
-      image: "/images/memori1.jpg",
+      image: "/images/memori11.jpg",
       caption: "Awal Pertemuan",
       date: "Momen Pertama",
       location: "Awal Mula Kisah",
       category: "Momen Manis",
       rotation: -2.5,
-      note: "Cerita manis awal mula hubungan dan momen pertama mengenal Ibrahim. Titik awal takdir manis kita dimulai.",
+      note: "Awal dari cerita kita. ❤️",
     },
     {
       id: "mem-2",
@@ -267,7 +267,7 @@ export const birthdayData: BirthdayData = {
       location: "Di Mana Pun Berdua",
       category: "Momen Manis",
       rotation: 2.8,
-      note: "Momen-momen indah dan tawa yang kita lewati berdua. Tawamu selalu jadi obat paling ampuh untuk rasa lelahku.",
+      note: "Tawa dan cerita kecil yang selalu bikin hari terasa lebih ringan.",
     },
     {
       id: "mem-3",
@@ -277,7 +277,7 @@ export const birthdayData: BirthdayData = {
       location: "Sudut Kenangan Kita",
       category: "Petualangan",
       rotation: -1.8,
-      note: "Kenangan jalan-jalan atau momen favorit kita. Setiap langkah terasa begitu istimewa saat berada di sampingmu.",
+      note: "Setiap jalan terasa lebih seru saat bersamamu.",
     },
     {
       id: "mem-4",
@@ -287,7 +287,7 @@ export const birthdayData: BirthdayData = {
       location: "Ruang Hati",
       category: "1st Anniversary",
       rotation: 2.2,
-      note: "Momen belajar memahami dan bertumbuh bersama. Terima kasih atas ketulusan dan kesabaran hatimu yang tiada tara.",
+      note: "Belajar memahami dan tumbuh bersama, pelan-pelan.",
     },
     {
       id: "mem-5",
@@ -297,7 +297,7 @@ export const birthdayData: BirthdayData = {
       location: "Hari-Hari Penuh Makna",
       category: "Momen Manis",
       rotation: -2.0,
-      note: "Kenangan manis yang tak terlupakan sepanjang tahun ini. Setiap detik bersamamu selalu ingin kuabadikan.",
+      note: "Banyak momen kecil yang ingin selalu aku ingat.",
     },
     {
       id: "mem-6",
@@ -307,7 +307,7 @@ export const birthdayData: BirthdayData = {
       location: "Tempat Pulang Terbaik",
       category: "Momen Manis",
       rotation: 2.4,
-      note: "Terima kasih selalu ada dan mendampingi di setiap kondisi. Kamu adalah rumah ternyaman untuk hatiku.",
+      note: "Terima kasih sudah selalu ada dan jadi tempat ternyaman untukku.",
     },
     {
       id: "mem-7",
@@ -317,7 +317,7 @@ export const birthdayData: BirthdayData = {
       location: "Doa Tulusku",
       category: "Doa & Harapan",
       rotation: -1.5,
-      note: "Harapan agar Ibrahim selalu sehat, panjang umur, dijauhkan dari marabahaya, dan dilimpahkan kebahagiaan sejati.",
+      note: "Semoga kamu selalu sehat, panjang umur, dan dikelilingi banyak hal baik.",
     },
     {
       id: "mem-8",
@@ -327,7 +327,7 @@ export const birthdayData: BirthdayData = {
       location: "Langkah Suksesmu",
       category: "Doa & Harapan",
       rotation: 2.1,
-      note: "Doa agar segala impian, karir, dan perjuangan Ibrahim selalu dimudahkan dan menuai kesuksesan yang berkah.",
+      note: "Semoga semua impian, karier, dan langkahmu selalu dimudahkan.",
     },
     {
       id: "mem-9",
@@ -337,7 +337,7 @@ export const birthdayData: BirthdayData = {
       location: "Satu Tahun Cinta",
       category: "1st Anniversary",
       rotation: -2.2,
-      note: "Ungkapan syukur telah menjadi pasangan yang sabar, penyayang, setia, dan selalu menjaga hubungan ini dengan baik.",
+      note: "Terima kasih untuk satu tahun yang penuh cerita, sabar, dan sayang.",
     },
     {
       id: "mem-10",
@@ -347,7 +347,7 @@ export const birthdayData: BirthdayData = {
       location: "Selamanya Berdua",
       category: "1st Anniversary",
       rotation: 1.8,
-      note: "Harapan agar hubungan ini selalu dijaga dan kita bisa melewati segalanya berdua, mengukir masa depan yang indah.",
+      note: "Semoga kita terus saling menjaga dan melangkah bersama.",
     },
   ],
 
@@ -355,16 +355,16 @@ export const birthdayData: BirthdayData = {
   // [8] STAGE 6: PERSONAL LETTER
   // ==========================================
   letter: {
-    leadText: "Ada begitu banyak rasa syukur yang ingin kutuliskan untukmu hari ini...",
+    leadText: "Ada banyak hal yang ingin aku bilang hari ini...",
     paragraphs: [
-      "Selamat ulang tahun untuk laki-laki terhebatku, sekaligus selamat merayakan 1st Anniversary perjalanan cinta kita, Ibrahim Septiardy.",
-      "Terima kasih sudah memilih untuk melangkah bersamaku selama 365 hari yang luar biasa ini. Melewati hari-hari denganmu membuatku sadar bahwa cinta sejati hadir dalam hal-hal sederhana: perhatian kecilmu, pelukan hangat di kala lelah, lelucon receh yang membuatku tertawa, dan tatapan tulus yang selalu menenangkan jiwaku.",
-      "Terima kasih telah menjadi pasangan yang begitu sabar, selalu mendengarkan keluh kesahku tanpa lelah, memahamiku bahkan di saat aku sulit dipahami, dan selalu berusaha menjadi yang terbaik untuk hubungan kita.",
-      "Di usiamu yang baru ini, doaku menyertai setiap helaan nafasmu. Semoga Ibrahim senantiasa diberikan kesehatan yang prima, umur yang berkah, dilapangkan pintu rezekinya, serta dimudahkan dalam setiap langkah menggapai karir dan cita-citamu.",
-      "Dan untuk hubungan kita, semoga cinta ini selalu dipelihara dengan ketulusan dan kesetiaan. Semoga kita selalu mampu saling menggenggam tangan, saling menguatkan, dan melewati setiap lika-liku kehidupan berdua.",
-      "Terima kasih telah lahir ke dunia dan menjadi anugerah terindah bagiku. Aku sangat bangga, bahagia, dan bersyukur memilikimu, Ibrahim.",
+      "Happy birthday untuk kamu, Ibrahim. Dan happy 1st anniversary untuk kita. ❤️",
+      "Terima kasih sudah menemani 365 hari ini. Aku belajar bahwa cinta ada di hal-hal sederhana: perhatian kecil, pelukan, lelucon receh, dan caramu selalu bikin aku merasa tenang.",
+      "Terima kasih sudah sabar menghadapi aku, mau mendengar, dan selalu berusaha menjaga hubungan ini.",
+      "Di usia barumu, semoga kamu selalu sehat, panjang umur, rezekinya lancar, dan semua cita-citamu dimudahkan.",
+      "Untuk kita, semoga tetap saling jujur, setia, dan kuat menghadapi apa pun yang datang. Semoga selalu ada kita di setiap langkah.",
+      "Terima kasih sudah lahir dan hadir di hidupku. Aku bersyukur banget punya kamu, Ibrahim. ❤️",
     ],
-    signature: "Dengan segenap cintaku, pasanganmu tersayang ❤️",
+    signature: "Dengan sayang, untuk kamu ❤️",
     highlightWords: [
       "Selamat ulang tahun",
       "1st Anniversary",
@@ -381,32 +381,32 @@ export const birthdayData: BirthdayData = {
   // [9] STAGE 7: BIRTHDAY CAKE & CANDLE
   // ==========================================
   cake: {
-    heading: "Panjatkan Doa & Harapan",
-    step1: "Pejamkan matamu sejenak...",
-    step2: "Pikirkan doa dan impian terbesarmu di hari ulang tahun & 1st anniversary kita...",
+    heading: "Buat Satu Doa ✨",
+    step1: "Pejamkan mata sebentar...",
+    step2: "Pikirkan satu doa dan harapanmu...",
     step3: "Sekarang, tiup lilinnya! 🎂",
-    blowPromptMic: "Tiup ke arah mikrofon, atau tahan tombol di bawah...",
+    blowPromptMic: "Tiup ke mikrofon atau tahan tombol di bawah...",
     blowPromptTouch: "Tahan untuk meniup lilin 💨",
-    candleBlownMessage: "Doa sucimu telah terkirim ke semesta! ✨",
-    candleBlownSubtext: "Semoga setiap doa baik untuk kesehatanmu, karirmu, dan masa depan cinta kita segera dikabulkan.",
+    candleBlownMessage: "Semoga doamu segera terkabul. ✨",
+    candleBlownSubtext: "Semoga kesehatan, karier, dan semua harapan baikmu dimudahkan.",
   },
 
   // ==========================================
   // [10] STAGE 8: FINAL SURPRISE GIFT BOX
   // ==========================================
   gift: {
-    title: "Eits... Tunggu Dulu!",
-    subtitle: "Masih ada satu kejutan dan janji cinta yang tersimpan untukmu...",
+    title: "Eits, masih ada satu lagi! 🎁",
+    subtitle: "Ada satu kejutan kecil buat kamu...",
     boxColor: "#FF8FAB",
     ribbonColor: "#FFD166",
-    giftTag: "HADIAH EKSKLUSIF UNTUK IBRAHIM",
-    revealedTitle: "VIP Lifetime Partner Pass & Janji Setia 🎁",
+    giftTag: "KHUSUS UNTUK IBRAHIM ❤️",
+    revealedTitle: "Lifetime Partner Pass 🎁",
     revealedMessage:
-      "Voucher ini berlaku selamanya dan memberikan Ibrahim hak istimewa seumur hidup: Pendengar setia 24/7 tanpa batas, pelukan hangat kapan pun kamu butuh, teman kuliner & petualangan seumur hidup, serta cinta tulus yang tak akan pernah pudar.",
+      "Berlaku selamanya: teman cerita, teman makan, teman jalan, pelukan kapan pun dibutuhkan, dan tentu saja cinta yang selalu ada. ❤️",
     revealedImage: "/images/gift-reveal.svg",
     specialVoucher: {
       code: "IBRAHIM-1ST-ANNIV-FOREVER",
-      description: "Berlaku Selamanya • Tidak Pernah Hangus • Hak Istimewa Sepenuh Hati",
+      description: "Berlaku selamanya • Tidak hangus • Dari hati",
     },
   },
 
@@ -414,12 +414,12 @@ export const birthdayData: BirthdayData = {
   // [11] STAGE 9: FINAL MESSAGE
   // ==========================================
   finalMessage: {
-    openingQuote: "Jika ada satu hal yang paling kudoakan untukmu hari ini...",
-    leadQuote: "Aku ingin kamu selalu melihat betapa hebat, berharga, dan sangat dicintainya dirimu melalui mataku.",
-    mainCelebration: "Selamat Ulang Tahun & Happy 1st Anniversary, Ibrahim Septiardy! ❤️",
-    closingLine: "Untuk 365 hari yang telah kita lalui bersama, dan jutaan hari indah yang akan kita lewati berdua.",
-    authorSignature: "Dibuat dengan segenap cinta, khusus untukmu.",
-    wishingTag: "✨ Kita Lewati Berdua — Hari Ini, Esok, dan Selamanya ✨",
+    openingQuote: "Kalau ada satu hal yang paling aku doakan hari ini...",
+    leadQuote: "Semoga kamu selalu tahu betapa berharga dan dicintainya kamu, terutama di mataku.",
+    mainCelebration: "Happy Birthday & 1st Anniversary, Ibrahim! ❤️",
+    closingLine: "Untuk 365 hari yang sudah kita lewati, dan banyak hari indah yang masih menunggu kita.",
+    authorSignature: "Dibuat khusus untuk kamu, dengan penuh sayang. ❤️",
+    wishingTag: "✨ Kita Lewati Berdua — hari ini dan seterusnya ✨",
   },
 
   // ==========================================
@@ -429,33 +429,33 @@ export const birthdayData: BirthdayData = {
     {
       id: "prayer-health",
       category: "Kesehatan & Umur Berkah",
-      title: "Doa Panjang Umur & Kesehatan",
+      title: "Panjang Umur & Sehat",
       prayer:
-        "Semoga Ibrahim senantiasa diberikan nikmat kesehatan jasmani dan rohani, umur yang panjang lagi berkah, serta selalu dilindungi dalam lindungan dan kasih sayang Tuhan di setiap tarikan nafas.",
+        "Semoga kamu selalu sehat, panjang umur, dilindungi Tuhan, dan dikelilingi hal-hal baik.",
       icon: "Heart",
     },
     {
       id: "prayer-career",
       category: "Karir & Cita-Cita",
-      title: "Doa Kelancaran Karir & Rezeki",
+      title: "Karier & Rezeki",
       prayer:
-        "Semoga segala perjuangan, kerja keras, karir, dan ikhtiar Ibrahim selalu dibukakan pintu kemudahan, dimudahkan jalannya, dan menuai keberhasilan yang melimpah serta berkah bagi orang-orang tersayang.",
+        "Semoga kerja kerasmu membuahkan hasil, rezekimu lancar, dan kariermu terus berkembang.",
       icon: "Sparkles",
     },
     {
       id: "prayer-relationship",
       category: "1st Anniversary & Hubungan",
-      title: "Doa Keharmonisan & Cinta Kita",
+      title: "Cinta & Hubungan Kita",
       prayer:
-        "Semoga hubungan kita yang genap berusia satu tahun ini senantiasa dijaga dari rasa jenuh dan perselisihan, dipenuhi rasa saling menghormati, setia, dan dituntun menuju jenjang yang semakin indah bersama.",
+        "Semoga kita selalu saling menghargai, setia, dan terus punya banyak alasan untuk memilih satu sama lain.",
       icon: "Shield",
     },
     {
       id: "prayer-peace",
       category: "Ketenangan Jiwa",
-      title: "Doa Kebahagiaan & Kedamaian",
+      title: "Bahagia & Tenang",
       prayer:
-        "Semoga hatimu selalu dipenuhi ketenangan dan rasa syukur, dijauhkan dari beban pikiran yang berat, dan kamu selalu menemukan alasan untuk tersenyum ceria setiap hari.",
+        "Semoga hatimu selalu tenang, banyak bersyukur, dan selalu punya alasan untuk tersenyum.",
       icon: "Sun",
     },
   ],
